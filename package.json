@@ -1,6 +1,6 @@
 {
-  "name": "@milo526/homebridge-tuya-web",
-  "version": "0.3.4-0",
+  "name": "@nedvisol/homebridge-tuya-web",
+  "version": "0.0.3",
   "description": "Homebridge plugin for use with Tuya devices (uses Home Assistant Tuya Web API)",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,7 @@
     "tuya",
     "smartlife"
   ],
-  "author": "Milo Cesar <milocesar1@gmail.com>",
+  "author": "Ned Visol <nedvisol@gmail.com>",
   "license": "MIT",
   "engines": {
     "node": ">=10.17.0",
@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/milo526/homebridge-tuya-web"
+    "url": "https://github.com/nedvisol/homebridge-tuya-web"
   },
   "dependencies": {
     "axios": "^0.19.2",
