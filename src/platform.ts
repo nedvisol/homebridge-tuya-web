@@ -14,6 +14,8 @@ import {TuyaDeviceDefaults, TuyaWebConfig} from './config';
 import {AuthenticationError} from './errors';
 import {DeviceList} from './helpers/DeviceList';
 
+import {bootstrapExtension} from './extension/Bootstrap';
+
 export type HomebridgeAccessory<DeviceConfig extends TuyaDevice> =
     PlatformAccessory
     & { controller?: BaseAccessory<DeviceConfig> }
@@ -94,6 +96,9 @@ export class TuyaWebPlatform implements DynamicPlatformPlugin {
               });
             }, pollingInterval * 1000);
         }
+
+        bootstrapExtension(this, this.api, this.log);
+
       } catch (e) {
         if(e instanceof AuthenticationError) {
           this.log.error('Authentication error: %s', e.message);
