@@ -29,10 +29,18 @@ export class OnCharacteristic extends TuyaWebCharacteristic {
     // Set device state in Tuya Web API
     const value = homekitValue ? 1 : 0;
 
-    this.accessory.setDeviceState('turnOnOff', {value}, {state: homekitValue}).then(() => {
-      this.debug('[SET] %s %s', homekitValue, value);
+    const cachedValue = this.accessory.cachedValue<OnCharacteristicData>(true);
+
+    // only update device state when the value changes
+    if (cachedValue?.state != homekitValue) {
+      this.accessory.setDeviceState('turnOnOff', {value}, {state: homekitValue}).then(() => {
+        this.debug('[SET] %s %s', homekitValue, value);        
       callback();
-    }).catch(this.accessory.handleError('SET', callback));
+      }).catch(this.accessory.handleError('SET', callback));    
+    } else {
+      this.debug('Skip setting unchanged value');      
+      callback();
+    }        
   }
 
   updateValue(data: DeviceWithOnCharacteristic['data'] | undefined, callback?: CharacteristicGetCallback): void {

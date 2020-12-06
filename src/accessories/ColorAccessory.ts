@@ -14,7 +14,7 @@ import {
 export abstract class ColorAccessory<DeviceConfig extends TuyaDevice = TuyaDevice> extends BaseAccessory<DeviceConfig> {
   private async setRemoteColor(color: { hue: number, saturation: number }): Promise<void> {
     const cachedValue = this.cachedValue<BrightnessCharacteristicData>(true);
-    const brightness = Number(cachedValue ? cachedValue.brightness : BrightnessCharacteristic.DEFAULT_VALUE);
+    const brightness = Number(cachedValue ? cachedValue.brightness : BrightnessCharacteristic.DEFAULT_VALUE);    
     const tuyaData = {
       hue: color.hue,
       saturation: color.saturation / 100,

@@ -33,7 +33,7 @@ export class BrightnessCharacteristic extends TuyaWebCharacteristic {
 
   public setRemoteValue(homekitValue: CharacteristicValue, callback: CharacteristicSetCallback): void {
     // Set device state in Tuya Web API
-    const value = homekitValue as number / 10 * 9 + 10;
+    const value = Math.round((homekitValue as number / 10) * 9 + 10);
 
     this.accessory.setDeviceState('brightnessSet', {value}, {brightness: homekitValue}).then(() => {
       this.debug('[SET] %s', value);

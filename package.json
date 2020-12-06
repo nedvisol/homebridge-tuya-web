@@ -1,8 +1,8 @@
 {
   "displayName": "TuyaWebPlatform",
-  "name": "@milo526/homebridge-tuya-web",
-  "version": "0.4.8",
-  "description": "Homebridge plugin for use with Tuya devices (uses Home Assistant Tuya Web API)",
+  "name": "@nedvisol/homebridge-tuya-web-extended",
+  "version": "0.0.2",
+  "description": "Homebridge plugin for use with Tuya devices with extensions - for development only",
   "main": "dist/index.js",
   "scripts": {
     "build": "rimraf ./dist && tsc",
@@ -40,6 +40,7 @@
     "url": "https://github.com/milo526/homebridge-tuya-web/issues"
   },
   "dependencies": {
+    "async-mutex": "^0.2.6",
     "axios": "^0.19.2",
     "lodash.debounce": "^4.0.8"
   },
