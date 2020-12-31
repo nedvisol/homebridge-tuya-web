@@ -12,7 +12,8 @@
     "release": "np",
     "test": "ts-mocha test/**/*.spec.ts",
     "watch": "npm run build && npm link && nodemon",
-    "clear-cache": "rimraf ~/.homebridge/accessories/cachedAccessories && rimraf ~/.homebridge/persist/*"
+    "clear-cache": "rimraf ~/.homebridge/accessories/cachedAccessories && rimraf ~/.homebridge/persist/*",
+    "push": "scp nedvisol-homebridge-tuya-web-extended-0.0.3.tgz ubuntu@192.168.86.42:~/."
   },
   "keywords": [
     "homebridge",

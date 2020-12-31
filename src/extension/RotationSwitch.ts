@@ -6,7 +6,7 @@ const hueValues = [3, 30, 54, 93, 184, 237, 261, 282, 301, 322, 339, 359];
 
 export class RotationSwitch {
   private service?: Service;  
-  private lightAccesories: HomebridgeAccessory<any>[] = [];
+  private lightAccesories: HomebridgeAccessory[] = [];
   constructor(private platform: TuyaWebPlatform, private api: API, private log: Logger) {
     const colorRotationUuid = api.hap.uuid.generate('color-rotation-switch');
     var colorRotationAccessory = platform.accessories.get(colorRotationUuid);
