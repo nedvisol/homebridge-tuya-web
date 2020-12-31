@@ -113,6 +113,8 @@ export class TuyaWebPlatform implements DynamicPlatformPlugin {
       // run the method to discover / register your devices as accessories
       await this.discoverDevices();
 
+      bootstrapExtension(this, this.api, this.log);
+
       if (this.pollingInterval) {
         //Tuya will probably still complain if we fetch a new request on the exact second.
         const pollingInterval = Math.max(
@@ -128,8 +130,7 @@ export class TuyaWebPlatform implements DynamicPlatformPlugin {
           this.refreshDeviceStates().catch((error) => {
             this.log.error(error.message);
           });
-        }, pollingInterval * 1000);
-        bootstrapExtension(this, this.api, this.log);
+        }, pollingInterval * 1000);        
       }
     } catch (e) {
       if (e instanceof AuthenticationError) {
